@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zapi_cpr_item_db_01_o4" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZC_CPR_ITEM_DB_01000Type" sap:label="Projection View for ZR_CPR_ITEM_DB_01000" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AmdID"/>
+                    <PropertyRef Name="Amdno"/>
+                </Key>
+                <Property Name="AmdID" Type="Edm.String" Nullable="false" MaxLength="10" sap:updatable="false"/>
+                <Property Name="Amdno" Type="Edm.String" Nullable="false" MaxLength="10" sap:updatable="false"/>
+                <Property Name="ID" Type="Edm.String" MaxLength="3"/>
+                <Property Name="Lifnr" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Bstnk" Type="Edm.String" MaxLength="35"/>
+                <Property Name="Posex" Type="Edm.String" MaxLength="6"/>
+                <Property Name="Kdmat" Type="Edm.String" MaxLength="35"/>
+                <Property Name="Txz01" Type="Edm.String" MaxLength="40"/>
+                <Property Name="Ablad" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Pcond" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Oldfr" Type="Edm.DateTime" Precision="0" sap:display-format="Date"/>
+                <Property Name="Oldpr" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Newfr" Type="Edm.DateTime" Precision="0" sap:display-format="Date"/>
+                <Property Name="Newpr" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Waers" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Meins" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Etrac" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Ntrac" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Newto" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Knumh" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Refno" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Ritem" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Aubel" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Aupos" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Vkorg" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Vtweg" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Spart" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Kunnr" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Matnr" Type="Edm.String" MaxLength="18"/>
+                <Property Name="Werks" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Lgort" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Vstel" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Kmein" Type="Edm.String" MaxLength="3"/>
+                <Property Name="Kunwe" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Kpein" Type="Edm.String" MaxLength="3"/>
+                <Property Name="Kschl" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Sdate" Type="Edm.DateTime" Precision="0" sap:display-format="Date"/>
+                <Property Name="Auart" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Usnam" Type="Edm.String" MaxLength="12"/>
+                <Property Name="Cngdt" Type="Edm.DateTime" Precision="0" sap:display-format="Date"/>
+                <Property Name="Chusr" Type="Edm.String" MaxLength="12"/>
+                <Property Name="Mwskz" Type="Edm.String" MaxLength="2"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Changed By" sap:quickinfo="Last Changed By User"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Changed On" sap:quickinfo="Last Change Date Time"/>
+                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Changed On" sap:quickinfo="Local Instance Last Change Date Time" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Salesdocument" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Salesdocumentitem" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Materialbycustomer" Type="Edm.String" MaxLength="35"/>
+                <Property Name="Customergroup" Type="Edm.String" MaxLength="2"/>
+                <Property Name="Purchaseorderbycustomer" Type="Edm.String" MaxLength="35"/>
+                <Property Name="Underlyingpurchaseorderitem" Type="Edm.String" MaxLength="6"/>
+                <Property Name="Purchaseorderbyshiptoparty" Type="Edm.String" MaxLength="35"/>
+                <Property Name="Sddocumentcategory" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Salesdocumenttype" Type="Edm.String" MaxLength="1"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="40"/>
+                <Property Name="Salesdocumentitemtext" Type="Edm.String" MaxLength="40"/>
+                <Property Name="Salesorganization" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Distributionchannel" Type="Edm.String" MaxLength="2"/>
+                <Property Name="Organizationdivision" Type="Edm.String" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Storagelocation" Type="Edm.String" MaxLength="4"/>
+            </EntityType>
+            <EntityContainer Name="cds_zapi_cpr_item_db_01_o4_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZC_CPR_ITEM_DB_01000" EntityType="cds_zapi_cpr_item_db_01_o4.ZC_CPR_ITEM_DB_01000Type" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="cds_zapi_cpr_item_db_01_o4.cds_zapi_cpr_item_db_01_o4_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_zapi_cpr_item_db_01_o4.cds_zapi_cpr_item_db_01_o4_Entities/ZC_CPR_ITEM_DB_01000" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>AmdID</PropertyPath>
+                                <PropertyPath>Amdno</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Insertable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection>
+                        <PropertyPath>LocalLastChangedAt</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zapi_cpr_item_db_01_o4.ZC_CPR_ITEM_DB_01000Type/AmdID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.Immutable"/>
+            </Annotations>
+            <Annotations Target="cds_zapi_cpr_item_db_01_o4.ZC_CPR_ITEM_DB_01000Type/Amdno" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.Immutable"/>
+            </Annotations>
+            <Annotations Target="cds_zapi_cpr_item_db_01_o4.ZC_CPR_ITEM_DB_01000Type" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>Amdno</PropertyPath>
+                        <PropertyPath>AmdID</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zapi_cpr_item_db_01_o4.cds_zapi_cpr_item_db_01_o4_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/sap/ZAPI_CPR_ITEM/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://my412338-api.s4hana.cloud.sap/sap/opu/odata/sap/ZAPI_CPR_ITEM/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

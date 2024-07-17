@@ -1,0 +1,178 @@
+{
+    "_version": "1.59.0",
+    "sap.app": {
+        "id": "updatecustom",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.13.6",
+            "toolsId": "43a7d590-49fe-47cc-8fa0-565f69109f7b"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZCPR_UPDT_SB/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/mainService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZCPR_UPLD_SB": {
+                "uri": "/sap/opu/odata/sap/ZCPR_UPLD_SB",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZCPR_UPLD_SB_Annotation"
+                    ],
+                    "localUri": "localService/ZCPR_UPLD_SB/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZAPI_CPR_ITEM": {
+                "uri": "/sap/opu/odata/sap/ZAPI_CPR_ITEM",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZAPI_CPR_ITEM/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "UPDATE-CUSTOM": {
+                    "semanticObject": "UPDATE",
+                    "action": "CUSTOM",
+                    "title": "{{flpTitle}}",
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    }
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.120.13",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "updatecustom.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {}
+            },
+            "ZCPR_UPLD_SB": {
+                "dataSource": "ZCPR_UPLD_SB",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZAPI_CPR_ITEM": {
+                "dataSource": "ZAPI_CPR_ITEM",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "updatecustom.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteUpdatecustom",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetUpdatecustom"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetUpdatecustom": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Updatecustom",
+                    "viewName": "Updatecustom"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "updatecustom.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

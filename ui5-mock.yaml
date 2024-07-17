@@ -1,0 +1,58 @@
+specVersion: "3.1"
+metadata:
+  name: updatecustom
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+        backend:
+          - authenticationType: reentranceTicket
+            path: /sap
+            url: https://my412313-api.s4hana.cloud.sap
+            destination: S4PC
+          - path: /sap
+            url: https://my412338-api.s4hana.cloud.sap
+            destination: S4-BTP-BAS
+            authenticationType: SAMLAssertion
+          - path: /sap/opu/odata4/sap/zapi_cpr_item_db_01_o4/srvd_a2x/sap/zapi_cpr_item_db_01_o4/0001/
+            url: https://my412338-api.s4hana.cloud.sap
+            destination: S4-BTP-BAS
+            authenticationType: SAMLAssertion
+          - path: /sap/opu/odata/sap/ZAPI_CPR_ITEM
+            url: https://my412338-api.s4hana.cloud.sap
+            destination: S4-BTP-BAS
+            authenticationType: SAMLAssertion
+          - path: /sap/opu/odata/sap/SD_PRICING_CONDITIONRECORD_SRV/
+            url: https://my412338-api.s4hana.cloud.sap
+            destination: S4-BTP-BAS
+            authenticationType: SAMLAssertion
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/ZCPR_UPLD_SB
+            generateMockData: true
+            metadataXmlPath: ./webapp/localService/ZCPR_UPLD_SB/metadata.xml
+            mockdataRootPath: ./webapp/localService/ZCPR_UPLD_SB/data
+          - urlPath: /sap/opu/odata/sap/ZAPI_CPR_ITEM
+            generateMockData: true
+            metadataXmlPath: ./webapp/localService/ZAPI_CPR_ITEM/metadata.xml
+            mockdataRootPath: ./webapp/localService/ZAPI_CPR_ITEM/mockdata
+        annotations:
+          - localPath: ./webapp/localService/SD_PRICING_CONDITIONRECORD_SRV/SD_PRICING_CONDITIONRECORD_SRV_Annotation.xml
+            urlPath: /destinations/S4-BTP-BAS/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='SD_PRICING_CONDITIONREC_ANNO_MDL',Version='0001')/$value/
